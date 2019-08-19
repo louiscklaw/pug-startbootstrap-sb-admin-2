@@ -30,6 +30,7 @@ const banner = [ '/*!\n',
 ].join( '' );
 
 
+
 const {
     series,
     parallel
@@ -69,7 +70,19 @@ var CLIENT_MP4 = path.join( CLIENT_SRC, 'mp4' );
 
 var CLIENT_PUG = CLIENT_SRC;
 var CLIENT_PUG_INC = path.join( CLIENT_SRC, 'pug_inc' );
+
+// pugs list
 var INDEX_PUG = path.join( CLIENT_SRC, 'index.pug' );
+var LOGIN_PUG = path.join( CLIENT_SRC, 'login.pug' );
+var FILES_PUG = path.join(CLIENT_SRC,'*.pug')
+var PUGS_LIST = [INDEX_PUG, LOGIN_PUG, FILES_PUG];
+
+
+// settings
+// const PROJ_HOME = __dirname;
+const NODE_MODULE_PATH = path.join( PROJ_HOME, 'node_modules' )
+const VENDOR_SRC = path.join( CLIENT_SRC, 'vendor' )
+
 
 // public directory
 var PUBLIC_DIR = path.join( __dirname, 'docs' );
@@ -82,8 +95,45 @@ var PUBLIC_MP4 = path.join( PUBLIC_DIR, 'mp4' );
 var PUG_PATHS = [ CLIENT_SRC, PUG_INC ];
 var SCSS_PATHs = [ SCSS_SRC ];
 var PUG_FILEMASK = PUG_PATHS.map( p => path.join( p, '*.pug' ) );
-var SCSS_MAIN = 'coming-soon.scss';
-var JS_MAIN = 'coming-soon.js';
+var SCSS_MAIN = 'sb-admin-2.scss';
+var JS_MAIN = 'sb-admin-2.js';
+
+
+
+
+// Bring third party dependencies from node_modules into vendor directory
+function modules() {
+    // Bootstrap JS
+    var bootstrapJS = gulp.src(path.join(NODE_MODULE_PATH, 'bootstrap/dist/js/*'))
+      .pipe(gulp.dest(path.join(VENDOR_SRC, 'bootstrap/js')));
+    // Bootstrap SCSS
+    var bootstrapSCSS = gulp.src(path.join(NODE_MODULE_PATH, 'bootstrap/scss/**/*'))
+      .pipe(gulp.dest(path.join(VENDOR_SRC,'bootstrap/scss')));
+    // ChartJS
+    var chartJS = gulp.src(path.join(NODE_MODULE_PATH, 'chart.js/dist/*.js'))
+      .pipe(gulp.dest(path.join(VENDOR_SRC,'chart.js')));
+    // dataTables
+    var dataTables = gulp.src([
+        path.join(NODE_MODULE_PATH, 'datatables.net/js/*.js'),
+        path.join(NODE_MODULE_PATH, 'datatables.net-bs4/js/*.js'),
+        path.join(NODE_MODULE_PATH, 'datatables.net-bs4/css/*.css')
+      ])
+      .pipe(gulp.dest(path.join(VENDOR_SRC,'datatables')));
+    // Font Awesome
+    var fontAwesome = gulp.src(path.join(NODE_MODULE_PATH, '@fortawesome/**/*'))
+      .pipe(gulp.dest(path.join(VENDOR_SRC,'')));
+    // jQuery Easing
+    var jqueryEasing = gulp.src(path.join(NODE_MODULE_PATH, 'jquery.easing/*.js'))
+      .pipe(gulp.dest(path.join(VENDOR_SRC,'jquery-easing')));
+    // jQuery
+    var jquery = gulp.src([
+        path.join(NODE_MODULE_PATH, 'jquery/dist/*'),
+        '!'+path.join(NODE_MODULE_PATH, 'jquery/dist/core.js')
+      ])
+      .pipe(gulp.dest(path.join(VENDOR_SRC,'jquery')));
+    return merge(bootstrapJS, bootstrapSCSS, chartJS, dataTables, fontAwesome, jquery, jqueryEasing);
+  }
+
 
 // i think it is easier if i implement it using fabric
 async function clean_public_dir() {
@@ -122,7 +172,7 @@ async function re_privision_public_dir() {
 }
 
 async function buildHTML() {
-    return gulp.src( INDEX_PUG )
+    return gulp.src( PUGS_LIST )
         .pipe( pug( {} ) )
         .pipe( gulp.dest( PUBLIC_PATH ) );
     // console.log( "helloworld" );
@@ -197,14 +247,15 @@ const browserSyncInit = function ( done ) {
         server: {
             baseDir: "./docs"
         },
-        port: 3000
+        port: 3000,
+        open: false
     } );
     done();
 }
 
 function compile_pug( done ) {
     console.log( INDEX_PUG );
-    gulp.src( INDEX_PUG )
+    gulp.src( PUGS_LIST )
         .pipe( pug( {} ) )
         .pipe( gulp.dest( PUBLIC_PATH ) );
     done();
@@ -218,8 +269,9 @@ function copy_img_files( done ) {
 }
 
 var default_task = series(
+    modules,
     re_privision_public_dir,
-    compile_pug, css, js, copy_img_files, copy_mp4
+    compile_pug, css, js, copy_img_files
 );
 
 

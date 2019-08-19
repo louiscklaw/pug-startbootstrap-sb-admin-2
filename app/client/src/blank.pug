@@ -1,0 +1,24 @@
+//- blank.pug
+include ./pug_inc/mixins.pug
+
+doctype html
+
+html(lang="en")
+    head
+        include ./pug_inc/meta.pug
+        include ./pug_inc/link.pug
+
+        include ./pug_inc/ga_tracking.pug
+
+    body#page-top
+        .wrapper
+            include ./pug_inc/sidebar.pug
+
+            #content-wrapper(class="d-flex flex-column")
+                include ./pug_inc/content.pug
+
+        +scroll_to_top_btn
+
+        include ./pug_inc/logout_modal.pug
+
+        include ./pug_inc/scripts.pug
