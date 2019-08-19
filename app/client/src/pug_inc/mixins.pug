@@ -108,11 +108,8 @@ mixin bottom_divider
 
 mixin menu_components
     li.nav-item
-        //- a(class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComponents" aria-expanded="true" aria-controls="")
-        //-     i(class="fas fa-fw fa-cog")
-        //-     span Components
         +menu_label("Components","fa-cog", "collapseTwo", "#collapseComponents")
-        div(id="collapseComponents" class="collapse" aria-labelledby="collapseComponents" data-parent="#accordionSidebar")
+        div(id="collapseComponents" class="collapse" aria-labelledby="headingComponents" data-parent="#accordionSidebar")
             div(class="bg-white py-2 collapse-inner rounded")
                 +collapse_header("Custom Components:")
                 a.collapse-item(href="buttons.html") Buttons
@@ -122,10 +119,6 @@ mixin menu_components
 
 mixin menu_pages(expanded)
     li.nav-item
-        //- a(class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages")
-        //-     i(class="fas fa-fw fa-folder")
-        //-     span Pages
-        //- +menu_label("Pages","fa-folder")
         +menu_label("Pages","fa-folder", "collapseTwo", "#collapsePages")
         div(id="collapsePages" class="collapse collapsed" aria-labelledby="headingPages" data-parent="#accordionSidebar")
             div(class="bg-white py-2 collapse-inner rounded")
@@ -142,9 +135,7 @@ mixin menu_pages(expanded)
 
 mixin menu_utilities
     li.nav-item
-        //- +menu_label("Utilities","fa-wrench", "collapseUtilities", "#collapseUtilities")
         +menu_label("Utilities","fa-wrench", "collapseTwo", "#collapseUtilities")
-
         div(id="collapseUtilities" class="collapse collapsed" aria-labelledby="headingUtilities" data-parent="#accordionSidebar")
             div(class="bg-white py-2 collapse-inner rounded")
                 h6.collapse-header Custom Utilities:
