@@ -166,6 +166,46 @@ mixin forgot_password_card_body
                 div(class="text-center")
                     a(class="small" href="login.html") Already have an account? Login!
 
+mixin register_form_text(input_type ,id, placeholder)
+    input(type!= input_type class="form-control form-control-user" id!= id placeholder!= placeholder)
+
+
+mixin register_login_card_body
+    //- register_login_card_body
+    .row
+        div(class="col-lg-5 d-none d-lg-block bg-register-image")
+        div(class="col-lg-7")
+            div(class="p-5")
+                div(class="text-center")
+                    h1(class="h4 text-gray-900 mb-4") Create an Account!
+                form.user
+                    div.row.form-group
+                        div(class="col-sm-6 mb-3 mb-sm-0")
+                            +register_form_text("text", "exampleFirstName", "First Name")
+
+                        div(class="col-sm-6")
+                            +register_form_text("text", "exampleFirstName", "Last Name")
+
+                    div(class="form-group")
+                        +register_form_text("email", "exampleInputEmail", "Email Address")
+
+                    div(class="form-group row")
+                        div(class="col-sm-6 mb-3 mb-sm-0")
+                            +register_form_text("password", "exampleInputPassword", "Password")
+
+                        div(class="col-sm-6")
+                            +register_form_text("password", "exampleRepeatPassword", "Repeat Password")
+
+                    +register_user_link
+                    <hr>
+                    +register_google_btn
+                    +register_facebook_btn
+                <hr>
+                div(class="text-center")
+                    +forgot_password_link
+                div(class="text-center")
+                    +login_link
+
 
 mixin login_card_body
     //- login_card_body
@@ -194,6 +234,26 @@ mixin login_card_body
                 <hr>
                 +link_btn("Forgot Password?","forgot-password.html")
                 +link_btn("Create an Account!","register.html")
+
+mixin register_google_btn
+    a(href="index.html" class="btn btn-google btn-user btn-block")
+        i(class="fab fa-google fa-fw")
+        p Register with Google
+
+mixin register_facebook_btn
+    a(href="index.html" class="btn btn-facebook btn-user btn-block")
+        i(class="fab fa-facebook fa-fw")
+        p Register with Facebook
+
+
+mixin register_user_link
+    a(href="login.html" class="btn btn-primary btn-user btn-block") Register Account
+
+mixin forgot_password_link
+    a(href="forgot-password.html" class="small") Forgot Password?
+
+mixin login_link
+    a(href="login.html" class="small") Already have an account? Login!
 
 mixin menu_charts
     +menu_button("Charts","fa-chart-area","charts.html")
