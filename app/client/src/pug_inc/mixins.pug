@@ -99,22 +99,6 @@ mixin menu_pages1(expanded)
         </div>
     </li>
 
-mixin menu_pages(expanded)
-    li.nav-item
-        a.nav-link(href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages")
-            i.fas.fa-fw(class="fa-folder")
-            span Pages
-        div.collapsePages(class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar")
-            div(class="bg-white py-2 collapse-inner rounded")
-                h6.collapse-header Login Screens:
-                a.collapse-item(href="login.html") Login
-                a.collapse-item(href="register.html") Register
-                a.collapse-item(href="forgot-password.html") Forgot Password
-                +collapse_divider
-                +collapse_header("Other Pages:")
-                a.collapse-item(href="404.html") 404 Page
-                a.collapse-item(href="blank.html") Blank Page
-
 mixin helloworld
     p helloworld
 
@@ -130,24 +114,10 @@ mixin sidebar_toggler
     div(class="text-center d-none d-md-inline")
         button#sidebarToggle(class="rounded-circle border-0")
 
+
 mixin bottom_divider
     <hr class="sidebar-divider d-none d-md-block">
 
-
-mixin menu_components1
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
-            </div>
-        </div>
-    </li>
 
 mixin menu_components
     li.nav-item
@@ -162,9 +132,21 @@ mixin menu_components
 
 
 
-
-
-
+mixin menu_pages(expanded)
+    li.nav-item
+        a.nav-link(href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages")
+            i.fas.fa-fw(class="fa-folder")
+            span Pages
+        div.collapsePages(class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Login Screens:
+                a.collapse-item(href="login.html") Login
+                a.collapse-item(href="register.html") Register
+                a.collapse-item(href="forgot-password.html") Forgot Password
+                +collapse_divider
+                +collapse_header("Other Pages:")
+                a.collapse-item(href="404.html") 404 Page
+                a.collapse-item(href="blank.html") Blank Page
 
 
 mixin menu_charts
