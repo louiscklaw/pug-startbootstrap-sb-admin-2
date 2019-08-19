@@ -74,7 +74,8 @@ var CLIENT_PUG_INC = path.join( CLIENT_SRC, 'pug_inc' );
 // pugs list
 var INDEX_PUG = path.join( CLIENT_SRC, 'index.pug' );
 var LOGIN_PUG = path.join( CLIENT_SRC, 'login.pug' );
-var PUGS_LIST = [INDEX_PUG, LOGIN_PUG];
+var FILES_PUG = path.join(CLIENT_SRC,'*.pug')
+var PUGS_LIST = [INDEX_PUG, LOGIN_PUG, FILES_PUG];
 
 
 // settings
