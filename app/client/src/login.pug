@@ -25,17 +25,15 @@ html(lang="en")
 
                                         form.user
                                             .form-group
-                                                input(type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...")
+                                                +username_textbox("Enter Email Address...")
 
                                             .form-group
-                                                input(type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password")
+                                                +password_textbox("Password")
 
                                             .form-group
-                                                div(class="custom-control custom-checkbox small")
-                                                    input(type="checkbox" class="custom-control-input" id="customCheck")
-                                                    label(class="custom-control-label" for="customCheck") Remember Me
+                                                +tick_box("Remember Me")
 
-                                            a(href="index.html" class="btn btn-primary btn-user btn-block") Login
+                                            +login_btn("Login","login.html")
 
                                             +social_login_btn("fa-google","Login with Google","index.html")
                                             +social_login_btn("fa-facebook-f","Login with Facebook","index.html")

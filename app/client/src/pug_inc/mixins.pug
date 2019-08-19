@@ -9,3 +9,17 @@ mixin social_login_btn(btn_icon, btn_text, btn_href)
     a(href!= btn_href class="btn btn-facebook btn-user btn-block")= btn_text
 
             //- i.fab.fa-fw(class!= btn_icon)
+
+mixin tick_box(text)
+    div(class="custom-control custom-checkbox small")
+        input(type="checkbox" class="custom-control-input" id="customCheck")
+        label(class="custom-control-label" for="customCheck")= text
+
+mixin username_textbox(text_placeholder)
+    input(type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder!= text_placeholder)
+
+mixin password_textbox(text_placeholder)
+    input(type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder!= text_placeholder)
+
+mixin login_btn(login_text, login_href)
+    a(href!= login_href class="btn btn-primary btn-user btn-block")= login_text
