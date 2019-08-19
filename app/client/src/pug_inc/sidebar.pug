@@ -1,0 +1,47 @@
+//- sidebar.pug
+
+ul#accordionSidebar(class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion")
+
+    +sidebar_brand("SB Admin <sup>2</sup>", "index.html")
+
+    <!-- Divider -->
+    +sidebar_divider_my0
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+    <a class="nav-link" href="index.html">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    +sidebar_divider
+
+    +sidebar_heading("Interface")
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    +menu_components
+
+    //- <!-- Nav Item - Utilities Collapse Menu -->
+    //- +menu_utilities
+    //- +sidebar_divider
+
+
+    //- +sidebar_heading("Addons")
+
+    //- <!-- Nav Item - Pages Collapse Menu -->
+
+    //- +menu_pages("true")
+
+    //- <!-- Nav Item - Charts -->
+    //- +menu_charts
+
+    //- <!-- Nav Item - Tables -->
+    //- +menu_tables
+
+    //- <!-- Divider -->
+    <!-- Sidebar Toggler (Sidebar) -->
+    +sidebar_divider
+    +sidebar_toggler
+
+</ul>

@@ -23,3 +23,152 @@ mixin password_textbox(text_placeholder)
 
 mixin login_btn(login_text, login_href)
     a(href!= login_href class="btn btn-primary btn-user btn-block")= login_text
+
+
+mixin scroll_to_top_btn
+    a(class="scroll-to-top rounded" href="#page-top")
+        i(class="fas fa-angle-up")
+
+
+mixin sidebar_divider_my0
+    <hr class="sidebar-divider my-0">
+
+mixin sidebar_divider
+    <hr class="sidebar-divider">
+
+mixin sidebar_brand(brand_text, brand_href)
+    a(class="sidebar-brand d-flex align-items-center justify-content-center" href!= brand_href)
+        .sidebar-brand-icon(class="rotate-n-15")
+            i(class="fas fa-laugh-wink")
+        div(class="sidebar-brand-text mx-3")= brand_text
+
+
+mixin menu_1st_level(menu_text, menu_href, inside_text)
+    a(class="collapse-item" href="menu_href")= menu_text
+
+
+mixin menu_2nd_level(menu_text, menu_href)
+    a(class="collapse-item" href="menu_href")= menu_text
+
+
+mixin menu_label(menu_text, menu_icon, expanded)
+    a(class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded!= expanded aria-controls="collapseUtilities")
+        i.fas.fa-fw(class!=menu_icon)
+        span Utilities
+
+
+mixin menu_utilities
+    li.nav-item
+        +menu_label("Utilities","fa-wrench")
+
+        div#collapseUtilitie(class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Custom Utilities:
+
+                +menu_2nd_level("Colors", "utilities-color.html")
+                +menu_2nd_level("Borders", "utilities-border.html")
+                +menu_2nd_level("Animations", "utilities-animation.html")
+                +menu_2nd_level("Other", "utilities-other.html")
+
+mixin sidebar_heading(heading_text)
+    .sidebar-heading= heading_text
+
+mixin collapse_header(header_text)
+    h6.collapse-header= header_text
+
+mixin collapse_divider
+    .collapse-divider
+
+mixin menu_pages1(expanded)
+    <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Pages</span>
+        </a>
+        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Login Screens:</h6>
+                <a class="collapse-item" href="login.html">Login</a>
+                <a class="collapse-item" href="register.html">Register</a>
+                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Other Pages:</h6>
+                <a class="collapse-item" href="404.html">404 Page</a>
+                <a class="collapse-item active" href="blank.html">Blank Page</a>
+            </div>
+        </div>
+    </li>
+
+mixin menu_pages(expanded)
+    li.nav-item
+        a.nav-link(href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages")
+            i.fas.fa-fw(class="fa-folder")
+            span Pages
+        div.collapsePages(class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Login Screens:
+                a.collapse-item(href="login.html") Login
+                a.collapse-item(href="register.html") Register
+                a.collapse-item(href="forgot-password.html") Forgot Password
+                +collapse_divider
+                +collapse_header("Other Pages:")
+                a.collapse-item(href="404.html") 404 Page
+                a.collapse-item(href="blank.html") Blank Page
+
+mixin helloworld
+    p helloworld
+
+
+mixin menu_button(menu_text, menu_icon, menu_href)
+    li.nav-item
+        a(class="nav-link" href!= menu_href)
+            i.fas.fa-fw(class!= menu_icon)
+            span= menu_text
+
+
+mixin sidebar_toggler
+    div(class="text-center d-none d-md-inline")
+        button#sidebarToggle(class="rounded-circle border-0")
+
+mixin bottom_divider
+    <hr class="sidebar-divider d-none d-md-block">
+
+
+mixin menu_components1
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Components</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Custom Components:</h6>
+                <a class="collapse-item" href="buttons.html">Buttons</a>
+                <a class="collapse-item" href="cards.html">Cards</a>
+            </div>
+        </div>
+    </li>
+
+mixin menu_components
+    li.nav-item
+        a(class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo")
+            i(class="fas fa-fw fa-cog")
+            span Components
+        div(id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                +collapse_header("Custom Components:")
+                a.collapse-item(href="buttons.html") Buttons
+                a.collapse-item(href="cards.html") Cards
+
+
+
+
+
+
+
+
+mixin menu_charts
+    +menu_button("Charts","fa-chart-area","charts.html")
+
+mixin menu_tables
+    +menu_button("Tables","fa-table","tables.html")
