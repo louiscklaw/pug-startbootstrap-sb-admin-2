@@ -144,6 +144,56 @@ mixin menu_utilities
                 +menu_2nd_level("Animations", "utilities-animation.html")
                 +menu_2nd_level("Other", "utilities-other.html")
 
+mixin forgot_password_card_body
+    //- forgot_password_card_body
+    .row
+        div(class="col-lg-6 d-none d-lg-block bg-password-image")
+        div(class="col-lg-6")
+            div(class="p-5")
+                div(class="text-center")
+                    h1(class="h4 text-gray-900 mb-2") Forgot Your Password?
+                    p.mb-4 We get it, stuff happens. Just enter your email address below and we'll send you a link to reset your password!
+
+                form.user
+                    div(class="form-group")
+                        input(type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...")
+                    a(href="login.html" class="btn btn-primary btn-user btn-block") Reset Password
+                    </a>
+                <hr>
+                div(class="text-center")
+                    a(class="small" href="register.html") Create an Account!
+
+                div(class="text-center")
+                    a(class="small" href="login.html") Already have an account? Login!
+
+
+mixin login_card_body
+    //- login_card_body
+    .row
+        div(class="col-lg-6 d-none d-lg-block bg-login-image")
+        div(class="col-lg-6")
+            div(class="p-5")
+                div(class="text-center")
+                    h1(class="h4 text-gray-900 mb-4") Welcome Back!
+
+                form.user
+                    .form-group
+                        +username_textbox("Enter Email Address...")
+
+                    .form-group
+                        +password_textbox("Password")
+
+                    .form-group
+                        +tick_box("Remember Me")
+
+                    +login_btn("Login","login.html")
+
+                    +social_login_btn("fa-google","Login with Google","index.html")
+                    +social_login_btn("fa-facebook-f","Login with Facebook","index.html")
+
+                <hr>
+                +link_btn("Forgot Password?","forgot-password.html")
+                +link_btn("Create an Account!","register.html")
 
 mixin menu_charts
     +menu_button("Charts","fa-chart-area","charts.html")

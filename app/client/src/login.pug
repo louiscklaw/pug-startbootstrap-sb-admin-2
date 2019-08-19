@@ -15,32 +15,7 @@ html(lang="en")
                 div(class="col-xl-10 col-lg-12 col-md-9")
                     .card(class="o-hidden border-0 shadow-lg my-5")
                         .card-body(class="p-0")
-                            <!-- Nested Row within Card Body -->
-                            .row
-                                div(class="col-lg-6 d-none d-lg-block bg-login-image")
-                                div(class="col-lg-6")
-                                    div(class="p-5")
-                                        div(class="text-center")
-                                            h1(class="h4 text-gray-900 mb-4") Welcome Back!
-
-                                        form.user
-                                            .form-group
-                                                +username_textbox("Enter Email Address...")
-
-                                            .form-group
-                                                +password_textbox("Password")
-
-                                            .form-group
-                                                +tick_box("Remember Me")
-
-                                            +login_btn("Login","login.html")
-
-                                            +social_login_btn("fa-google","Login with Google","index.html")
-                                            +social_login_btn("fa-facebook-f","Login with Facebook","index.html")
-
-                                        <hr>
-                                        +link_btn("Forgot Password?","forgot-password.html")
-                                        +link_btn("Create an Account!","register.html")
+                            +login_card_body
 
         include ./pug_inc/footer.pug
         include ./pug_inc/scripts.pug
