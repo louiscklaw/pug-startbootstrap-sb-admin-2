@@ -53,22 +53,9 @@ mixin menu_2nd_level(menu_text, menu_href)
 
 mixin menu_label(menu_text, menu_icon, expanded)
     a(class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded!= expanded aria-controls="collapseUtilities")
-        i.fas.fa-fw(class!=menu_icon)
-        span Utilities
+        i.fas.fa-fw(class!= menu_icon)
+        span= menu_text
 
-
-mixin menu_utilities
-    li.nav-item
-        +menu_label("Utilities","fa-wrench")
-
-        div#collapseUtilitie(class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar")
-            div(class="bg-white py-2 collapse-inner rounded")
-                h6.collapse-header Custom Utilities:
-
-                +menu_2nd_level("Colors", "utilities-color.html")
-                +menu_2nd_level("Borders", "utilities-border.html")
-                +menu_2nd_level("Animations", "utilities-animation.html")
-                +menu_2nd_level("Other", "utilities-other.html")
 
 mixin sidebar_heading(heading_text)
     .sidebar-heading= heading_text
@@ -134,9 +121,7 @@ mixin menu_components
 
 mixin menu_pages(expanded)
     li.nav-item
-        a.nav-link(href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages")
-            i.fas.fa-fw(class="fa-folder")
-            span Pages
+        +menu_label("Pages","fa-folder")
         div.collapsePages(class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar")
             div(class="bg-white py-2 collapse-inner rounded")
                 h6.collapse-header Login Screens:
@@ -147,6 +132,19 @@ mixin menu_pages(expanded)
                 +collapse_header("Other Pages:")
                 a.collapse-item(href="404.html") 404 Page
                 a.collapse-item(href="blank.html") Blank Page
+
+
+
+mixin menu_utilities
+    li.nav-item
+        +menu_label("Utilities","fa-wrench")
+        div.collapsePages(class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Custom Utilities:
+                +menu_2nd_level("Colors", "utilities-color.html")
+                +menu_2nd_level("Borders", "utilities-border.html")
+                +menu_2nd_level("Animations", "utilities-animation.html")
+                +menu_2nd_level("Other", "utilities-other.html")
 
 
 mixin menu_charts
