@@ -1,1 +1,11 @@
 //- mixins.pug
+
+mixin link_btn(btn_text, btn_href)
+    div(class="text-center")
+        a(class="small" href!= btn_href)= btn_text
+
+
+mixin social_login_btn(btn_icon, btn_text, btn_href)
+    a(href!= btn_href class="btn btn-facebook btn-user btn-block")
+        i.fab.fa-fw(class!= btn_icon)
+        p btn_text

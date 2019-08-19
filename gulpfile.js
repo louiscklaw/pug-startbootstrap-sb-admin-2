@@ -246,7 +246,8 @@ const browserSyncInit = function ( done ) {
         server: {
             baseDir: "./docs"
         },
-        port: 3000
+        port: 3000,
+        open: false
     } );
     done();
 }

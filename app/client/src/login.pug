@@ -1,3 +1,5 @@
+include ./pug_inc/mixins.pug
+
 doctype html
 
 html(lang="en")
@@ -6,8 +8,49 @@ html(lang="en")
         include ./pug_inc/link.pug
 
         include ./pug_inc/ga_tracking.pug
-    body
-        p login.html
+    body(class="bg-gradient-primary")
+
+        .container
+            .row(class="justify-content-center")
+                div(class="col-xl-10 col-lg-12 col-md-9")
+                    .card(class="o-hidden border-0 shadow-lg my-5")
+                        .card-body(class="p-0")
+                            <!-- Nested Row within Card Body -->
+                            .row
+                                div(class="col-lg-6 d-none d-lg-block bg-login-image")
+                                div(class="col-lg-6")
+                                    div(class="p-5")
+                                        div(class="text-center")
+                                            h1(class="h4 text-gray-900 mb-4") Welcome Back!
+
+                                        form.user
+                                            .form-group
+                                                input(type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...")
+
+                                            .form-group
+                                                input(type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password")
+
+                                            .form-group
+                                                div(class="custom-control custom-checkbox small")
+                                                    input(type="checkbox" class="custom-control-input" id="customCheck")
+                                                    label(class="custom-control-label" for="customCheck") Remember Me
+
+                                            a(href="index.html" class="btn btn-primary btn-user btn-block") Login
+
+                                            hr
+                                            a(href="index.html" class="btn btn-google btn-user btn-block")
+                                                i(class="fab fa-google fa-fw")
+                                                p Login with Google
+
+                                            +social_login_btn("fa-facebook-f","Login with Facebook","index.html")
+
+                                        <hr>
+                                        +link_btn("Forgot Password?","forgot-password.html")
+
+                                        +link_btn("Create an Account!","register.html")
+
+                p login.html
+
 
         include ./pug_inc/footer.pug
         include ./pug_inc/scripts.pug
