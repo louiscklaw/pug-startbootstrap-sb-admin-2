@@ -37,16 +37,11 @@ html(lang="en")
 
                                             a(href="index.html" class="btn btn-primary btn-user btn-block") Login
 
-                                            hr
-                                            a(href="index.html" class="btn btn-google btn-user btn-block")
-                                                i(class="fab fa-google fa-fw")
-                                                p Login with Google
-
+                                            +social_login_btn("fa-google","Login with Google","index.html")
                                             +social_login_btn("fa-facebook-f","Login with Facebook","index.html")
 
                                         <hr>
                                         +link_btn("Forgot Password?","forgot-password.html")
-
                                         +link_btn("Create an Account!","register.html")
 
                 p login.html
