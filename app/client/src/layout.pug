@@ -1,4 +1,22 @@
-extends buttons.pug
 
-block page_heading
-    <h1 class="h3 mb-4 text-gray-800">Blank Page 321a</h1>
+
+//- test_footer.pug
+include ./pug_inc/mixins.pug
+
+doctype html
+html(lang="en")
+    head
+        include ./pug_inc/meta.pug
+        include ./pug_inc/link.pug
+
+        //- include ./pug_inc/ga_tracking.pug
+
+    body#page-top
+        include ./pug_inc/test_wrapper.pug
+
+
+        +scroll_to_top_btn
+
+        include ./pug_inc/logout_modal.pug
+
+        include ./pug_inc/scripts.pug
