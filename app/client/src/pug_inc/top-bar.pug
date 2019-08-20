@@ -109,12 +109,6 @@ mixin user_information_logout
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
     </a>
 
-mixin troubleshoot
-    //- a.nav-link(class="dropdown-toggle" href="#" id="userDropdown" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-    //-     span(class="mr-2 d-none d-lg-inline text-gray-600 small") Valerie Luna
-    //-     img(class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60")
-
-
 
 mixin navitem_user_information
     li(class="nav-item dropdown no-arrow")
@@ -130,21 +124,6 @@ mixin navitem_user_information
             +user_information_divider
 
             +user_information_logout
-
-
-    //- li.nav-link(class="dropdown no-arrow")
-    //-     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    //-         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-    //-         <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-    //-     </a>
-        //- div(class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown")
-        //-     +user_information_item("fa-user", "Profile")
-        //-     +user_information_item("fa-cogs", "Settings")
-        //-     +user_information_item("fa-list", "Activity Log")
-
-        //-     +user_information_divider
-
-        //-     +user_information_logout
 
 
 mixin navitem_alerts
