@@ -1,19 +1,13 @@
 extends layout.pug
 
-block page_heading
-    <h1 class="h3 mb-4 text-gray-800">Blank Page 321a</h1>
 
-block page_body
-    .row
-        <div class="col-lg-6">
-
-            <!-- Circle Buttons -->
+mixin card1
             <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Circle Buttons</h6>
             </div>
             <div class="card-body">
-                <p>Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown in the examples below!</p>
+                <p>123321 Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown in the examples below!</p>
                 <!-- Circle Buttons (Default) -->
                 <div class="mb-2">
                 <code>.btn-circle</code>
@@ -74,7 +68,8 @@ block page_body
             </div>
             </div>
 
-            <!-- Brand Buttons -->
+
+mixin card2
             <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Brand Buttons</h6>
@@ -88,9 +83,8 @@ block page_body
             </div>
             </div>
 
-        </div>
 
-        <div class="col-lg-6">
+mixin card3
 
             <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -163,5 +157,24 @@ block page_body
                 </a>
             </div>
             </div>
+
+
+block page_heading
+    <h1 class="h3 mb-4 text-gray-800">Blank Page 321a</h1>
+
+block page_body
+    .row
+        <div class="col-lg-6">
+
+            <!-- Circle Buttons -->
+            +card1
+
+            <!-- Brand Buttons -->
+            +card2
+
+        </div>
+
+        <div class="col-lg-6">
+            +card3
 
         </div>
