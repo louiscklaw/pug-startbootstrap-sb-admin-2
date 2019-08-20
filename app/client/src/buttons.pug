@@ -29,6 +29,12 @@ mixin card_title(title)
     div(class="card-header py-3")
         h6(class="m-0 font-weight-bold text-primary")= title
 
+mixin brand_btn_fb(fa_icon ,btn_class, btn_text)
+    a.btn.btn-block(href="#" class!= btn_class)
+        i.fab.fa-fw(class!= fa_icon)
+        = btn_text
+
+
 mixin card1
     .card(class=" shadow mb-4")
         +card_title("Circle Buttons")
@@ -65,18 +71,14 @@ mixin card1
 
 
 mixin card2
-            <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Brand Buttons</h6>
-            </div>
-            <div class="card-body">
-                <p>Google and Facebook buttons are available featuring each company's respective brand color. They are used on the user login and registration pages.</p>
-                <p>You can create more custom buttons by adding a new color variable in the <code>_variables.scss</code> file and then using the Bootstrap button variant mixin to create a new style, as demonstrated in the <code>_buttons.scss</code> file.</p>
-                <a href="#" class="btn btn-google btn-block"><i class="fab fa-google fa-fw"></i> .btn-google</a>
-                <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f fa-fw"></i> .btn-facebook</a>
+    .card(class=" shadow mb-4")
+        +card_title("Brand Buttons")
+        .card-body
+            p Google and Facebook buttons are available featuring each company's respective brand color. They are used on the user login and registration pages.
+            p You can create more custom buttons by adding a new color variable in the <code>_variables.scss</code> file and then using the Bootstrap button variant mixin to create a new style, as demonstrated in the <code>_buttons.scss</code> file.
 
-            </div>
-            </div>
+            +brand_btn_fb("fa-google", "btn-google",".btn-google")
+            +brand_btn_fb("fa-facebook-f", "btn-facebook",".btn-facebook")
 
 
 mixin card3
