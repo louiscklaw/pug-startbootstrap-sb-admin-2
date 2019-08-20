@@ -1,5 +1,62 @@
 //- sidebar.pug
 
+
+mixin sidebar_brand(brand_text, brand_href)
+    a(class="sidebar-brand d-flex align-items-center justify-content-center" href!= brand_href)
+        .sidebar-brand-icon(class="rotate-n-15")
+            i(class="fas fa-laugh-wink")
+        div(class="sidebar-brand-text mx-3")= brand_text
+
+
+mixin sidebar_divider_my0
+    <hr class="sidebar-divider my-0">
+
+mixin sidebar_divider
+    <hr class="sidebar-divider">
+
+mixin sidebar_heading(heading_text)
+    .sidebar-heading= heading_text
+
+
+mixin menu_components
+    li.nav-item
+        +menu_label("Components","fa-cog", "collapseTwo", "#collapseComponents")
+        div(id="collapseComponents" class="collapse" aria-labelledby="headingComponents" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                +collapse_header("Custom Components:")
+                a.collapse-item(href="buttons.html") Buttons
+                a.collapse-item(href="cards.html") Cards
+
+mixin menu_utilities
+    li.nav-item
+        +menu_label("Utilities","fa-wrench", "collapseTwo", "#collapseUtilities")
+        div(id="collapseUtilities" class="collapse collapsed" aria-labelledby="headingUtilities" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Custom Utilities:
+                +menu_2nd_level("Colors", "utilities-color.html")
+                +menu_2nd_level("Borders", "utilities-border.html")
+                +menu_2nd_level("Animations", "utilities-animation.html")
+                +menu_2nd_level("Other", "utilities-other.html")
+
+
+mixin menu_pages(expanded)
+    li.nav-item
+        +menu_label("Pages","fa-folder", "collapseTwo", "#collapsePages")
+        div(id="collapsePages" class="collapse collapsed" aria-labelledby="headingPages" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Login Screens:
+                a.collapse-item(href="login.html") Login
+                a.collapse-item(href="register.html") Register
+                a.collapse-item(href="forgot-password.html") Forgot Password
+                +collapse_divider
+                +collapse_header("Other Pages:")
+                a.collapse-item(href="404.html") 404 Page
+                a.collapse-item(href="blank.html") Blank Page
+
+mixin sidebar_toggler
+    div(class="text-center d-none d-md-inline")
+        button#sidebarToggle(class="rounded-circle border-0")
+
 ul#accordionSidebar(class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion")
 
     +sidebar_brand("SB Admin <sup>2</sup>", "index.html")
