@@ -21,13 +21,16 @@ mixin circle_button_large(fa_icon, btn_class)
     a.btn.btn-circle.btn-lg(class!= btn_class href="#")
         i.fas(class!= fa_icon)
 
+
+mixin card_template(title, desc)
+    div 123
+
 mixin card_title(title)
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Circle Buttons</h6>
-    </div>
+    div(class="card-header py-3")
+        h6(class="m-0 font-weight-bold text-primary")= title
 
 mixin card1
-    .card(class="shadow mb-4")
+    .card(class=" shadow mb-4")
         +card_title("Circle Buttons")
         .card-body
             p Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown in the examples below!
@@ -59,7 +62,7 @@ mixin card1
             +circle_button_large("fa-info-circle","btn-info")
             +circle_button_large("fa-exclamation-triangle","btn-warning")
             +circle_button_large("fa-trash","btn-danger")
-    </div></div>
+
 
 mixin card2
             <div class="card shadow mb-4">
