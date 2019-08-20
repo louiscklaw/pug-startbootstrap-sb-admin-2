@@ -171,3 +171,19 @@ mixin scroll_to_top_btn
 
 mixin buttons_page_content
     p buttons-page-content
+
+
+mixin card_title(text_title)
+    div(class="card-header py-3")
+        h6(class="m-0 font-weight-bold text-primary")= text_title
+
+mixin card_desc(text_desc)
+    div= text_desc
+
+mixin card_template(title, desc)
+        <!-- Grayscale Utilities -->
+        <div class="card shadow mb-4">
+            +card_title(title)
+            .card-body
+                block
+        </div>
