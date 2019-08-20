@@ -173,7 +173,7 @@ async function re_privision_public_dir() {
 
 async function buildHTML() {
     return gulp.src( PUGS_LIST )
-        .pipe( pug( {} ) )
+        .pipe( pug( {pretty: true} ) )
         .pipe( gulp.dest( PUBLIC_PATH ) );
     // console.log( "helloworld" );
 };
@@ -256,7 +256,7 @@ const browserSyncInit = function ( done ) {
 function compile_pug( done ) {
     console.log( INDEX_PUG );
     gulp.src( PUGS_LIST )
-        .pipe( pug( {} ) )
+        .pipe( pug( {pretty:true} ) )
         .pipe( gulp.dest( PUBLIC_PATH ) );
     done();
 }

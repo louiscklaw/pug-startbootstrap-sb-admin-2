@@ -1,0 +1,20 @@
+//- test_topbar.pug
+include ./pug_inc/mixins.pug
+
+doctype html
+html(lang="en")
+    head
+        include ./pug_inc/meta.pug
+        include ./pug_inc/link.pug
+
+        //- include ./pug_inc/ga_tracking.pug
+
+    body#page-top
+        include ./test_wrapper.pug
+
+
+        +scroll_to_top_btn
+
+        include ./pug_inc/logout_modal.pug
+
+        include ./pug_inc/scripts.pug

@@ -76,22 +76,23 @@ mixin user_information
     p user_information
 
 nav(class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow")
-    //- sidebar toggle
-    button.sidebarToggleTop(class="btn btn-link d-md-none rounded-circle mr-3")
-        i.fa-bars.fa
 
-    //- topbar search
-    ul.navbar-nav(class="ml-auto")
-        //- search dropdown
-        +search_dropdown
+    //- //- sidebar toggle
+    //- button.sidebarToggleTop(class="btn btn-link d-md-none rounded-circle mr-3")
+    //-     i.fa-bars.fa
 
-        //- alerts
-        +alerts
+    //- //- topbar search
+    //- ul.navbar-nav(class="ml-auto" style="color: red;")
+    //-     //- search dropdown
+    //-     +search_dropdown
 
-        //- messages
-        +messages
+    //-     //- alerts
+    //-     +alerts
 
-        div(class="topbar-divider d-none d-sm-block")
+    //-     //- messages
+    //-     +messages
 
-        //- User Information
-        +user_information
+    //-     div(class="topbar-divider d-none d-sm-block")
+
+    //-     //- User Information
+    //-     +user_information
