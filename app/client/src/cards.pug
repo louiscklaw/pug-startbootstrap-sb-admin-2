@@ -1,0 +1,87 @@
+//- cards.pug
+extends layout.pug
+
+mixin card_3_4(card_class, text_class, title, desc, fa_icon)
+    div(class="card shadow h-100 py-2" class!= card_class)
+        div(class="card-body")
+            div(class="row no-gutters align-items-center")
+                div(class="col mr-2")
+                    div(class="text-xs font-weight-bold  text-uppercase mb-1" class!= text_class)= title
+                    div(class="h5 mb-0 font-weight-bold text-gray-800")= desc
+
+                div(class="col-auto")
+                    i(class="fas fa-2x text-gray-300" class!= fa_icon)
+
+mixin card_example_6(title, detail, card_class)
+    div.card(class="mb-4" class!= card_class)
+        div.card-header= title
+        div.card-body=detail
+
+
+mixin drop_down_card(title, detail, card_class)
+    <!-- Dropdown Card Example -->
+    <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>
+        <div class="dropdown no-arrow">
+        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+            <div class="dropdown-header">Dropdown Header:</div>
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+        </div>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+        Dropdown menus can be placed in the card header in order to extend the functionality of a basic card.
+        In this dropdown card example, the Font Awesome vertical ellipsis icon in the card header can be
+        clicked on in order to toggle a dropdown menu.
+    </div>
+    </div>
+
+
+mixin collapsable_card(title, detail, card_class)
+    <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+            <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="collapseCardExample">
+            <div class="card-body">
+                This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!
+            </div>
+        </div>
+    </div>
+
+
+block page_heading
+    <h1 class="h3 mb-4 text-gray-800">Cards</h1>
+
+block page_body
+    .row
+        div(class="col-xl-3 col-md-6 mb-4")
+            +card_3_4("border-left-primary", "text-primary", "Earnings (Monthly)", "$40,000", "fa-calendar")
+        div(class="col-xl-3 col-md-6 mb-4")
+            +card_3_4("border-left-success", "text-primary", "Earnings (Annual)", "$215,000", "fa-dollar-sign")
+        div(class="col-xl-3 col-md-6 mb-4")
+            +card_3_4("border-left-primary", "text-primary", "Tasks", "50%", "fa-clipboard-list")
+        div(class="col-xl-3 col-md-6 mb-4")
+            +card_3_4("border-left-primary", "text-primary", "Pending Requests", "18", "fa-comments")
+
+    .row
+        .col-lg-6
+            +card_example_6("Default Card Example", "This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.")
+
+            +card_example_6("Basic Card Example", "The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!", "shadow")
+
+        .col-lg-6
+            +drop_down_card("Default Card Example", "This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.")
+
+            +collapsable_card("Basic Card Example", "The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!", "shadow")
