@@ -8,6 +8,12 @@ mixin split_btn_with_icon(fa_icon, btn_class,btn_text)
         span.text= btn_text
 
 
+mixin split_btn_with_icon_small(fa_icon, btn_class,btn_text)
+    a(href="#" class="btn btn-icon-split" class!= btn_class)
+        span(class="icon text-white-50")
+            i(class="fas " class!= fa_icon)
+        span.text= btn_text
+
 
 mixin code_text(text)
     div.mb-2.mt-2
@@ -103,6 +109,13 @@ mixin card3
             +split_btn_with_icon("fa-trash", "btn-warning","Split Button Danger")
             .my-2
             +split_btn_with_icon("fa-arrow-right", "btn-danger","Split Button Secondary")
+
+            .mb-4
+            p Also works with small and large button classes!
+            +split_btn_with_icon("fa-arrow-right", "btn-danger btn-sm","Split Button Secondary")
+            .my-2
+            +split_btn_with_icon("fa-arrow-right", "btn-danger btn-lg","Split Button Secondary")
+
 
 
 
