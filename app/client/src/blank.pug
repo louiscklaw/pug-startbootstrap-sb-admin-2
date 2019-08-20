@@ -1,4 +1,4 @@
-//- blank.pug
+//- test_footer.pug
 include ./pug_inc/mixins.pug
 
 doctype html
@@ -7,16 +7,10 @@ html(lang="en")
         include ./pug_inc/meta.pug
         include ./pug_inc/link.pug
 
-        include ./pug_inc/ga_tracking.pug
+        //- include ./pug_inc/ga_tracking.pug
 
     body#page-top
-        .wrapper
-            include ./pug_inc/sidebar.pug
-
-            #content-wrapper(class="d-flex flex-column" )
-                include ./pug_inc/blank_content.pug
-
-                //- include ./pug_inc/footer.pug
+        include ./test_wrapper.pug
 
 
         +scroll_to_top_btn
