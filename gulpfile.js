@@ -253,8 +253,12 @@ const browserSyncInit = function ( done ) {
     done();
 }
 
-function compile_pug( done ) {
+
+function compile_pug ( done ) {
+
     gulp.src( PUGS_LIST )
+        .pipe( plumber() )
+
         .pipe( pug( {pretty:true} ) )
         .pipe( gulp.dest( PUBLIC_PATH ) );
     done();
@@ -332,15 +336,13 @@ var default_task = series(
 exports.default = default_task;
 exports.sass = sass_compile;
 exports.w = () => {
-    gulp.watch( PUG_FILEMASK, default_task );
-    gulp.watch( SCSS_PATHs, default_task );
+    gulp.watch( CLIENT_SRC+'/*', default_task );
+    // gulp.watch( SCSS_PATHs, default_task );
 }
 
 const build = gulp.parallel( re_privision_public_dir, compile_pug, css, js, copy_img_files );
+
 const watch = gulp.series( default_task, gulp.parallel( watchFiles, browserSyncInit ) );
-
-
-
 
 
 exports.css = css;
