@@ -101,6 +101,8 @@ var SCSS_MAIN = 'sb-admin-2.scss';
 var JS_MAIN = 'sb-admin-2.js';
 
 
+// PROJECT SETTINGS
+const pages_working_branch = 'feature/pages/working';
 
 
 // Bring third party dependencies from node_modules into vendor directory
@@ -282,7 +284,6 @@ function check_current_branch_name ( done ) {
         .find( x => x.includes( '*' ) ).replace( "* ", "" ).trim();
 }
 
-var pages_working_branch = 'feature/pages/working';
 
 function checkout_pages_working_branch ( ) {
     return c_process.execSync( `git checkout ${pages_working_branch}` );
