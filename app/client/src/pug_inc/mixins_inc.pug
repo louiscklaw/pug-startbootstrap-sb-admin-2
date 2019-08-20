@@ -181,9 +181,7 @@ mixin card_desc(text_desc)
     div= text_desc
 
 mixin card_template(title, desc)
-        <!-- Grayscale Utilities -->
-        <div class="card shadow mb-4">
-            +card_title(title)
-            .card-body
-                block
-        </div>
+    .card(class="shadow mb-4")
+        +card_title(title)
+        .card-body
+            block
