@@ -1,5 +1,14 @@
 //- sidebar.pug
 
+mixin menu_label(menu_text, menu_icon, controls, targets)
+    a(class="nav-link collapsed" href="#" data-toggle="collapse" data-target!= targets aria-expanded="true" aria-controls!= controls)
+        i.fas.fa-fw(class!= menu_icon)
+        span= menu_text
+
+
+mixin collapse_header(header_text)
+    h6.collapse-header= header_text
+
 
 mixin sidebar_brand(brand_text, brand_href)
     a(class="sidebar-brand d-flex align-items-center justify-content-center" href!= brand_href)
@@ -56,6 +65,30 @@ mixin menu_pages(expanded)
 mixin sidebar_toggler
     div(class="text-center d-none d-md-inline")
         button#sidebarToggle(class="rounded-circle border-0")
+
+mixin menu_1st_level(menu_text, menu_href, inside_text)
+    a(class="collapse-item" href="menu_href")= menu_text
+
+
+mixin menu_2nd_level(menu_text, menu_href)
+    a(class="collapse-item" href="menu_href")= menu_text
+
+mixin collapse_divider
+    .collapse-divider
+
+
+mixin menu_charts
+    +menu_button("Charts","fa-chart-area","charts.html")
+
+mixin menu_tables
+    +menu_button("Tables","fa-table","tables.html")
+
+mixin menu_button(menu_text, menu_icon, menu_href)
+    li.nav-item
+        a(class="nav-link" href!= menu_href)
+            i.fas.fa-fw(class!= menu_icon)
+            span= menu_text
+
 
 ul#accordionSidebar(class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion")
 
