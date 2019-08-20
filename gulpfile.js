@@ -17,6 +17,8 @@ const rename = require( "gulp-rename" );
 const sass = require( "gulp-sass" );
 const uglify = require( "gulp-uglify" );
 
+const c_process = require( "child_process" );
+
 // Load package.json for banner
 const pkg = require( './package.json' );
 
@@ -268,6 +270,55 @@ function copy_img_files( done ) {
     done();
 }
 
+function exec_command_sync ( cmd_text ) {
+    return c_process.execSync( cmd_text );
+}
+
+function check_current_branch_name ( done ) {
+    return c_process.execSync( 'git branch' ).toString()
+        // get array
+        .split( "\n" )
+        // get active branch
+        .find( x => x.includes( '*' ) ).replace( "* ", "" ).trim();
+}
+
+var pages_working_branch = 'feature/pages/working';
+
+function checkout_pages_working_branch ( ) {
+    return c_process.execSync( `git checkout ${pages_working_branch}` );
+
+}
+
+async function git_pull () {
+    return exec_command_sync( 'git pull' );
+}
+
+async function git_checkout_branch ( branch ) {
+    return exec_command_sync( `git checkout ${branch}` );
+}
+
+async function git_merge_branch ( src_branch, dst_branch ) {
+    await git_checkout_branch( dst_branch );
+    await git_pull();
+    return exec_command_sync( `git merge ${src_branch}` );
+}
+
+async function merge_to_working_page ( done ) {
+    console.log( c_process.execSync( 'date' ).toString() );
+    // check current branch name
+    var tmp_branch = check_current_branch_name();
+    console.log( tmp_branch );
+
+    // checkout feature/pages/working branch
+    // git pull
+    // git merge current branch
+    await git_merge_branch( tmp_branch, pages_working_branch );
+
+    // git checkout current brach
+    await git_checkout_branch( tmp_branch );
+    done();
+}
+
 var default_task = series(
     modules,
     re_privision_public_dir,
@@ -288,8 +339,14 @@ const watch = gulp.series( default_task, gulp.parallel( watchFiles, browserSyncI
 
 
 
+
+
 exports.css = css;
 exports.js = js;
 // exports.clean = clean;
 // exports.vendor = vendor;
 exports.w = watch;
+
+
+// customize for dev
+exports.merge_to_working_page = merge_to_working_page
