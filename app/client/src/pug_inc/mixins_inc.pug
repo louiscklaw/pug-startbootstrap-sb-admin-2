@@ -1,0 +1,253 @@
+//- mixins_inc.pug
+
+mixin register_user_link
+    a(href="login.html" class="btn btn-primary btn-user btn-block") Register Account
+
+
+mixin forgot_password_link
+    a(href="forgot-password.html" class="small") Forgot Password?
+
+
+mixin login_link
+    a(href="login.html" class="small") Already have an account? Login!
+
+
+mixin helloworld
+    p helloworld
+
+
+mixin menu_button(menu_text, menu_icon, menu_href)
+    li.nav-item
+        a(class="nav-link" href!= menu_href)
+            i.fas.fa-fw(class!= menu_icon)
+            span= menu_text
+
+
+mixin sidebar_toggler
+    div(class="text-center d-none d-md-inline")
+        button#sidebarToggle(class="rounded-circle border-0")
+
+
+mixin bottom_divider
+    <hr class="sidebar-divider d-none d-md-block">
+
+
+mixin menu_components
+    li.nav-item
+        +menu_label("Components","fa-cog", "collapseTwo", "#collapseComponents")
+        div(id="collapseComponents" class="collapse" aria-labelledby="headingComponents" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                +collapse_header("Custom Components:")
+                a.collapse-item(href="buttons.html") Buttons
+                a.collapse-item(href="cards.html") Cards
+
+
+mixin menu_pages(expanded)
+    li.nav-item
+        +menu_label("Pages","fa-folder", "collapseTwo", "#collapsePages")
+        div(id="collapsePages" class="collapse collapsed" aria-labelledby="headingPages" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Login Screens:
+                a.collapse-item(href="login.html") Login
+                a.collapse-item(href="register.html") Register
+                a.collapse-item(href="forgot-password.html") Forgot Password
+                +collapse_divider
+                +collapse_header("Other Pages:")
+                a.collapse-item(href="404.html") 404 Page
+                a.collapse-item(href="blank.html") Blank Page
+
+
+mixin menu_utilities
+    li.nav-item
+        +menu_label("Utilities","fa-wrench", "collapseTwo", "#collapseUtilities")
+        div(id="collapseUtilities" class="collapse collapsed" aria-labelledby="headingUtilities" data-parent="#accordionSidebar")
+            div(class="bg-white py-2 collapse-inner rounded")
+                h6.collapse-header Custom Utilities:
+                +menu_2nd_level("Colors", "utilities-color.html")
+                +menu_2nd_level("Borders", "utilities-border.html")
+                +menu_2nd_level("Animations", "utilities-animation.html")
+                +menu_2nd_level("Other", "utilities-other.html")
+
+
+mixin forgot_password_card_body
+    //- forgot_password_card_body
+    .row
+        div(class="col-lg-6 d-none d-lg-block bg-password-image")
+        div(class="col-lg-6")
+            div(class="p-5")
+                div(class="text-center")
+                    h1(class="h4 text-gray-900 mb-2") Forgot Your Password?
+                    p.mb-4 We get it, stuff happens. Just enter your email address below and we'll send you a link to reset your password!
+
+                form.user
+                    div(class="form-group")
+                        input(type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...")
+                    a(href="login.html" class="btn btn-primary btn-user btn-block") Reset Password
+                    </a>
+                <hr>
+                div(class="text-center")
+                    a(class="small" href="register.html") Create an Account!
+
+                div(class="text-center")
+                    a(class="small" href="login.html") Already have an account? Login!
+
+
+mixin register_form_text(input_type ,id, placeholder)
+    input(type!= input_type class="form-control form-control-user" id!= id placeholder!= placeholder)
+
+
+mixin topbar_form_text(placeholder)
+    input(type="text" class="form-control bg-light border-0 small" aria-label="Search" aria-describedby="basic-addon2" placeholder!= placeholder)
+
+
+mixin sidebar_toggle
+    button#sidebarToggleTop(class="btn btn-link d-md-none rounded-circle mr-3")
+        i.fa-bars(class="fa")
+
+
+mixin register_login_card_body
+    //- register_login_card_body
+    .row
+        div(class="col-lg-5 d-none d-lg-block bg-register-image")
+        div(class="col-lg-7")
+            div(class="p-5")
+                div(class="text-center")
+                    h1(class="h4 text-gray-900 mb-4") Create an Account!
+                form.user
+                    div.row.form-group
+                        div(class="col-sm-6 mb-3 mb-sm-0")
+                            +register_form_text("text", "exampleFirstName", "First Name")
+
+                        div(class="col-sm-6")
+                            +register_form_text("text", "exampleFirstName", "Last Name")
+
+                    div(class="form-group")
+                        +register_form_text("email", "exampleInputEmail", "Email Address")
+
+                    div(class="form-group row")
+                        div(class="col-sm-6 mb-3 mb-sm-0")
+                            +register_form_text("password", "exampleInputPassword", "Password")
+
+                        div(class="col-sm-6")
+                            +register_form_text("password", "exampleRepeatPassword", "Repeat Password")
+
+                    +register_user_link
+                    <hr>
+                    +register_google_btn
+                    +register_facebook_btn
+                <hr>
+                div(class="text-center")
+                    +forgot_password_link
+                div(class="text-center")
+                    +login_link
+
+
+mixin login_card_body
+    //- login_card_body
+    .row
+        div(class="col-lg-6 d-none d-lg-block bg-login-image")
+        div(class="col-lg-6")
+            div(class="p-5")
+                div(class="text-center")
+                    h1(class="h4 text-gray-900 mb-4") Welcome Back!
+
+                form.user
+                    .form-group
+                        +username_textbox("Enter Email Address...")
+
+                    .form-group
+                        +password_textbox("Password")
+
+                    .form-group
+                        +tick_box("Remember Me")
+
+                    +login_btn("Login","login.html")
+
+                    +social_login_btn("fa-google","Login with Google","index.html")
+                    +social_login_btn("fa-facebook-f","Login with Facebook","index.html")
+
+                <hr>
+                +link_btn("Forgot Password?","forgot-password.html")
+                +link_btn("Create an Account!","register.html")
+
+
+mixin register_google_btn
+    a(href="index.html" class="btn btn-google btn-user btn-block")
+        i(class="fab fa-google fa-fw")
+        p Register with Google
+
+
+mixin register_facebook_btn
+    a(href="index.html" class="btn btn-facebook btn-user btn-block")
+        i(class="fab fa-facebook fa-fw")
+        p Register with Facebook
+
+
+mixin link_btn(btn_text, btn_href)
+    div(class="text-center")
+        a(class="small" href!= btn_href)= btn_text
+
+
+mixin social_login_btn(btn_icon, btn_text, btn_href)
+    a(href!= btn_href class="btn btn-facebook btn-user btn-block")= btn_text
+
+            //- i.fab.fa-fw(class!= btn_icon)
+
+mixin tick_box(text)
+    div(class="custom-control custom-checkbox small")
+        input(type="checkbox" class="custom-control-input" id="customCheck")
+        label(class="custom-control-label" for="customCheck")= text
+
+mixin username_textbox(text_placeholder)
+    input(type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder!= text_placeholder)
+
+mixin password_textbox(text_placeholder)
+    input(type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder!= text_placeholder)
+
+mixin login_btn(login_text, login_href)
+    a(href!= login_href class="btn btn-primary btn-user btn-block")= login_text
+
+
+mixin scroll_to_top_btn
+    a(class="scroll-to-top rounded" href="#page-top")
+        i(class="fas fa-angle-up")
+
+
+mixin sidebar_divider_my0
+    <hr class="sidebar-divider my-0">
+
+mixin sidebar_divider
+    <hr class="sidebar-divider">
+
+mixin sidebar_brand(brand_text, brand_href)
+    a(class="sidebar-brand d-flex align-items-center justify-content-center" href!= brand_href)
+        .sidebar-brand-icon(class="rotate-n-15")
+            i(class="fas fa-laugh-wink")
+        div(class="sidebar-brand-text mx-3")= brand_text
+
+
+mixin menu_1st_level(menu_text, menu_href, inside_text)
+    a(class="collapse-item" href="menu_href")= menu_text
+
+
+mixin menu_2nd_level(menu_text, menu_href)
+    a(class="collapse-item" href="menu_href")= menu_text
+
+
+mixin menu_label(menu_text, menu_icon, controls, targets)
+    a(class="nav-link collapsed" href="#" data-toggle="collapse" data-target!= targets aria-expanded="true" aria-controls!= controls)
+        i.fas.fa-fw(class!= menu_icon)
+        span= menu_text
+
+
+mixin sidebar_heading(heading_text)
+    .sidebar-heading= heading_text
+
+mixin collapse_header(header_text)
+    h6.collapse-header= header_text
+
+mixin collapse_divider
+    .collapse-divider
+
+mixin buttons_page_content
+    p buttons-page-content
