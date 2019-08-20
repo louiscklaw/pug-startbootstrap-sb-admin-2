@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "cd app && find . |entr -c -s \"gulp\"",
+    "test": "cd app && find . |entr -c -s \"gulp w\"",
     "start": "cd app/server && node server.js"
   },
   "repository": {
