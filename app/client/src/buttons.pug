@@ -1,71 +1,71 @@
 extends layout.pug
 
 
+mixin circle_button(fa_icon, btn_class)
+    a.btn(class!= btn_class).btn-circle(href="#")
+        i.fas(class!= fa_icon)
+
+
+mixin code_text(text)
+    div.mb-2.mt-2
+        code!= text
+
 mixin card1
             <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Circle Buttons</h6>
             </div>
-            <div class="card-body">
-                <p>123321 Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown in the examples below!</p>
-                <!-- Circle Buttons (Default) -->
-                <div class="mb-2">
-                <code>.btn-circle</code>
+                <div class="card-body">
+                    <p>Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown
+                        in the examples below!</p>
+
+                    <!-- Circle Buttons (Default) -->
+                    +code_text(".btn-circle")
+
+                    +circle_button("fa-facebook-f", "btn-primary")
+                    +circle_button("fa-check","btn-success")
+                    +circle_button("fa-info-circle","btn-info")
+                    +circle_button("fa-exclamation-triangle","btn-warning")
+                    +circle_button("fa-trash","btn-danger")
+
+                    <!-- Circle Buttons (Small) -->
+                    +code_text(".btn-circle .btn-sm")
+
+                    <a href="#" class="btn btn-primary btn-circle btn-sm">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-success btn-circle btn-sm">
+                        <i class="fas fa-check"></i>
+                    </a>
+                    <a href="#" class="btn btn-info btn-circle btn-sm">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <a href="#" class="btn btn-warning btn-circle btn-sm">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-circle btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                    <!-- Circle Buttons (Large) -->
+                    <div class="mt-4 mb-2">
+                        <code>.btn-circle .btn-lg</code>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-circle btn-lg">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn btn-success btn-circle btn-lg">
+                        <i class="fas fa-check"></i>
+                    </a>
+                    <a href="#" class="btn btn-info btn-circle btn-lg">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <a href="#" class="btn btn-warning btn-circle btn-lg">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-circle btn-lg">
+                        <i class="fas fa-trash"></i>
+                    </a>
                 </div>
-                <a href="#" class="btn btn-primary btn-circle">
-                <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="btn btn-success btn-circle">
-                <i class="fas fa-check"></i>
-                </a>
-                <a href="#" class="btn btn-info btn-circle">
-                <i class="fas fa-info-circle"></i>
-                </a>
-                <a href="#" class="btn btn-warning btn-circle">
-                <i class="fas fa-exclamation-triangle"></i>
-                </a>
-                <a href="#" class="btn btn-danger btn-circle">
-                <i class="fas fa-trash"></i>
-                </a>
-                <!-- Circle Buttons (Small) -->
-                <div class="mt-4 mb-2">
-                <code>.btn-circle .btn-sm</code>
-                </div>
-                <a href="#" class="btn btn-primary btn-circle btn-sm">
-                <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="btn btn-success btn-circle btn-sm">
-                <i class="fas fa-check"></i>
-                </a>
-                <a href="#" class="btn btn-info btn-circle btn-sm">
-                <i class="fas fa-info-circle"></i>
-                </a>
-                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                <i class="fas fa-exclamation-triangle"></i>
-                </a>
-                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                <i class="fas fa-trash"></i>
-                </a>
-                <!-- Circle Buttons (Large) -->
-                <div class="mt-4 mb-2">
-                <code>.btn-circle .btn-lg</code>
-                </div>
-                <a href="#" class="btn btn-primary btn-circle btn-lg">
-                <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="btn btn-success btn-circle btn-lg">
-                <i class="fas fa-check"></i>
-                </a>
-                <a href="#" class="btn btn-info btn-circle btn-lg">
-                <i class="fas fa-info-circle"></i>
-                </a>
-                <a href="#" class="btn btn-warning btn-circle btn-lg">
-                <i class="fas fa-exclamation-triangle"></i>
-                </a>
-                <a href="#" class="btn btn-danger btn-circle btn-lg">
-                <i class="fas fa-trash"></i>
-                </a>
-            </div>
             </div>
 
 
