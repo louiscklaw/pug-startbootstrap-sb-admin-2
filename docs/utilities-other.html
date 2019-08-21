@@ -170,104 +170,60 @@
               </ul>
       </nav><!-- Begin Page Content -->
 <div class="container-fluid">
-<!-- Page Heading --><h1 class="h3 mb-4 text-gray-800">Cards</h1>
+<!-- Page Heading --><h1 class="h3 mb-1 text-gray-800">Other Utilities</h1>
+<p class="mb-4">Bootstrap's default utility classes can be found on the official <a href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities below were created to extend this theme past the default utility classes built into Bootstrap's framework.</p>
       <div class="row">
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card shadow h-100 py-2 border-left-primary">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold  text-uppercase mb-1 text-primary">Earnings (Monthly)</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                </div>
-                <div class="col-auto"><i class="fas fa-2x text-gray-300 fa-calendar"></i></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card shadow h-100 py-2 border-left-success">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold  text-uppercase mb-1 text-primary">Earnings (Annual)</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                </div>
-                <div class="col-auto"><i class="fas fa-2x text-gray-300 fa-dollar-sign"></i></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card shadow h-100 py-2 border-left-primary">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold  text-uppercase mb-1 text-primary">Tasks</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">50%</div>
-                </div>
-                <div class="col-auto"><i class="fas fa-2x text-gray-300 fa-clipboard-list"></i></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card shadow h-100 py-2 border-left-primary">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold  text-uppercase mb-1 text-primary">Pending Requests</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                </div>
-                <div class="col-auto"><i class="fas fa-2x text-gray-300 fa-comments"></i></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card mb-4">
-            <div class="card-header">Default Card Example</div>
-            <div class="card-body">This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.</div>
-          </div>
-          <div class="card mb-4 shadow">
-            <div class="card-header">Basic Card Example</div>
-            <div class="card-body">The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!</div>
-          </div>
-        </div>
-        <div class="col-lg-6"><!-- Dropdown Card Example -->
-<div class="card shadow mb-4">
-<!-- Card Header - Dropdown -->
-<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-<h6 class="m-0 font-weight-bold text-primary">Dropdown Card Example</h6>
-<div class="dropdown no-arrow">
-<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-</a>
-<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-<div class="dropdown-header">Dropdown Header:</div>
+        <div class="col-lg-6"><!-- Overflow Hidden -->
+<div class="card mb-4">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Overflow Hidden Utilty</h6>
+</div>
+<div class="card-body">
+          <Use><code>.o-hidden</code> to set the overflow property of any element to hidden.</Use></div>
+</div>
+<!-- Progress Small -->
+<div class="card mb-4">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Progress Small Utility</h6>
+</div>
+<div class="card-body">
+<div class="mb-1 small">Normal Progress Bar</div>
+<div class="progress mb-4">
+<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"                            aria-valuemax="100"></div>
+</div>
+<div class="mb-1 small">Small Progress Bar</div>
+<div class="progress progress-sm mb-2">
+<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"                            aria-valuemax="100"></div>
+</div>
+          <Use>the <code>.progress-sm</code> class along with <code>.progress</code></Use></div>
+</div>
+<!-- Dropdown No Arrow -->
+<div class="card mb-4">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Dropdown - No Arrow</h6>
+</div>
+<div class="card-body">
+<div class="dropdown no-arrow mb-4">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <Dropdown>(no arrow)</Dropdown></button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 <a class="dropdown-item" href="#">Action</a>
 <a class="dropdown-item" href="#">Another action</a>
-<div class="dropdown-divider"></div>
 <a class="dropdown-item" href="#">Something else here</a>
 </div>
 </div>
+          <Add>the <code>.no-arrow</code> class alongside the <code>.dropdown</code></Add></div>
 </div>
-<!-- Card Body -->
-<div class="card-body">
-          <Dropdown>menus can be placed in the card header in order to extend the functionality of a basic card.</Dropdown>
-          <In>this dropdown card example, the Font Awesome vertical ellipsis icon in the card header can be</In>
-          <clicked>on in order to toggle a dropdown menu.</clicked></div>
-</div><div class="card shadow mb-4">
-<!-- Card Header - Accordion -->
-<a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-<h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>
-</a>
-<!-- Card Content - Collapse -->
-<div class="collapse show" id="collapseCardExample">
-<div class="card-body">
-          <This>is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!</This></div>
+        </div>
+        <div class="col-lg-6"><!-- Roitation Utilities -->
+<div class="card">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Rotation Utilities</h6>
+</div>
+<div class="card-body text-center">
+<div class="bg-primary text-white p-3 rotate-15 d-inline-block my-4">.rotate-15</div>
+<hr>
+<div class="bg-primary text-white p-3 rotate-n-15 d-inline-block my-4">.rotate-n-15</div>
 </div>
 </div>
         </div>

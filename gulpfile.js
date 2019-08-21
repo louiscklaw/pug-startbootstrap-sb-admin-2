@@ -33,13 +33,9 @@ const banner = [ '/*!\n',
 
 
 
-const {
-    series,
-    parallel
-} = require( 'gulp' );
-const {
-    exec
-} = require( 'child_process' );
+const {    series,    parallel} = require( 'gulp' );
+
+const {    exec, execSync } = require( 'child_process' );
 
 const pug = require( 'gulp-pug' );
 
@@ -140,20 +136,22 @@ function modules() {
 
 
 // i think it is easier if i implement it using fabric
-async function clean_public_dir() {
-    return exec( `rm -rf ${PUBLIC_PATH}` );
+async function clean_public_dir () {
+    console.log( PUBLIC_PATH );
+
+    return execSync( `rm -rf ${PUBLIC_PATH}` );
 }
 
 async function mkdir_public_dir() {
-    return exec( `mkdir -p ${PUBLIC_PATH}` );
+    return execSync( `mkdir -p ${PUBLIC_PATH}` );
 }
 
 async function mkdir( dir_path ) {
-    return exec( 'mkdir -p ' + dir_path );
+    return execSync( 'mkdir -p ' + dir_path );
 }
 
 async function copy_dir( src_path, dst_path ) {
-    return exec( `cp ${src_path} ${dst_path}` );
+    return execSync( `cp ${src_path} ${dst_path}` );
 }
 
 async function copy_img() {
@@ -172,7 +170,7 @@ async function re_privision_public_dir() {
     await mkdir( PUBLIC_CSS );
     await mkdir( PUBLIC_JS );
     await mkdir( PUBLIC_MP4 );
-    await copy_img();
+    // await copy_img();
 }
 
 async function buildHTML() {
@@ -257,9 +255,12 @@ const browserSyncInit = function ( done ) {
     done();
 }
 
-function compile_pug( done ) {
-    console.log( INDEX_PUG );
+
+function compile_pug ( done ) {
+
     gulp.src( PUGS_LIST )
+        .pipe( plumber() )
+
         .pipe( pug( {pretty:true} ) )
         .pipe( gulp.dest( PUBLIC_PATH ) );
     done();
@@ -320,10 +321,15 @@ async function merge_to_working_page ( done ) {
     done();
 }
 
+function helloworld (done) {
+    console.log( "helloworld" );
+    done();
+}
+
 var default_task = series(
     modules,
     re_privision_public_dir,
-    compile_pug, css, js, copy_img_files
+    parallel(compile_pug, css, js,copy_img_files)
 );
 
 
@@ -331,15 +337,13 @@ var default_task = series(
 exports.default = default_task;
 exports.sass = sass_compile;
 exports.w = () => {
-    gulp.watch( PUG_FILEMASK, default_task );
-    gulp.watch( SCSS_PATHs, default_task );
+    gulp.watch( CLIENT_SRC+'/*', default_task );
+    // gulp.watch( SCSS_PATHs, default_task );
 }
 
 const build = gulp.parallel( re_privision_public_dir, compile_pug, css, js, copy_img_files );
+
 const watch = gulp.series( default_task, gulp.parallel( watchFiles, browserSyncInit ) );
-
-
-
 
 
 exports.css = css;

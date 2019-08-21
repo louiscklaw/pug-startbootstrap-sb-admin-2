@@ -88,9 +88,9 @@ mixin register_login_card_body
 
                     +register_user_link
                     <hr>
-                    +register_google_btn
-                    +register_facebook_btn
-                <hr>
+                    +register_google_btn("Register with Google")
+                    +register_facebook_btn("Register with Facebook")
+                hr
                 div(class="text-center")
                     +forgot_password_link
                 div(class="text-center")
@@ -126,16 +126,16 @@ mixin login_card_body
                 +link_btn("Create an Account!","register.html")
 
 
-mixin register_google_btn
+mixin register_google_btn(text)
     a(href="index.html" class="btn btn-google btn-user btn-block")
         i(class="fab fa-google fa-fw")
-        p Register with Google
+        = text
 
 
-mixin register_facebook_btn
+mixin register_facebook_btn(text)
     a(href="index.html" class="btn btn-facebook btn-user btn-block")
         i(class="fab fa-facebook fa-fw")
-        p Register with Facebook
+        = text
 
 
 mixin link_btn(btn_text, btn_href)
@@ -171,3 +171,17 @@ mixin scroll_to_top_btn
 
 mixin buttons_page_content
     p buttons-page-content
+
+
+mixin card_title(text_title)
+    div(class="card-header py-3")
+        h6(class="m-0 font-weight-bold text-primary")= text_title
+
+mixin card_desc(text_desc)
+    div= text_desc
+
+mixin card_template(title, desc)
+    .card(class="shadow mb-4")
+        +card_title(title)
+        .card-body
+            block

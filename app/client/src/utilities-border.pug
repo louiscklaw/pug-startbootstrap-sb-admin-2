@@ -1,0 +1,34 @@
+//- buttons.pug
+extends layout.pug
+
+mixin card_tester(card_text, card_class)
+    .card(class="mb-4 py-3" class!= card_class )
+        .card-body
+            = card_text
+
+
+mixin utilities_borders
+    <!-- Border Left Utilities -->
+    .col-lg-6
+        +card_tester(".border-left-primary", "border-left-primary")
+        +card_tester(".border-left-success", "border-left-success")
+        +card_tester(".border-left-info", "border-left-info")
+        +card_tester(".border-left-warning", "border-left-warning")
+        +card_tester(".border-left-danger", "border-left-danger")
+
+    <!-- Border Bottom Utilities -->
+    .col-lg-6
+        +card_tester(".border-bottom-primary", "border-bottom-primary")
+        +card_tester(".border-bottom-success", "border-bottom-success")
+        +card_tester(".border-bottom-info", "border-bottom-info")
+        +card_tester(".border-bottom-warning", "border-bottom-warning")
+        +card_tester(".border-bottom-danger", "border-bottom-danger")
+
+
+block page_heading
+    <h1 class="h3 mb-4 text-gray-800">Border Utilities</h1>
+    p.mb-4 Bootstrap's default utility classes can be found on the official <a href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities below were created to extend this theme past the default utility classes built into Bootstrap's framework.</p>
+
+block page_body
+    .row
+        +utilities_borders

@@ -71,7 +71,7 @@ mixin menu_1st_level(menu_text, menu_href, inside_text)
 
 
 mixin menu_2nd_level(menu_text, menu_href)
-    a(class="collapse-item" href="menu_href")= menu_text
+    a(class="collapse-item" href!= menu_href)= menu_text
 
 mixin collapse_divider
     .collapse-divider
