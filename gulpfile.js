@@ -223,6 +223,7 @@ function js() {
             path.join( CLIENT_JS, JS_MAIN ),
             path.join( CLIENT_JS, '**/*.js' ),
         ] )
+        .pipe( plumber() )
         .pipe( uglify() )
         .pipe( header( banner, {
             pkg: pkg
