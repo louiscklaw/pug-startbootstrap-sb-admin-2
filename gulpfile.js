@@ -259,7 +259,6 @@ const browserSyncInit = function ( done ) {
     done();
 }
 
-
 function compile_pug ( done ) {
 
     gulp.src( PUGS_LIST )
@@ -270,8 +269,8 @@ function compile_pug ( done ) {
     done();
 }
 
-function copy_img_files( done ) {
-    gulp.src( [ CLIENT_IMG + '/*' ] )
+function copy_img_files ( done ) {
+    gulp.src( [ CLIENT_IMG + '/*.*' ] )
         .pipe( gulp.dest( PUBLIC_IMG ) );
 
     done();
