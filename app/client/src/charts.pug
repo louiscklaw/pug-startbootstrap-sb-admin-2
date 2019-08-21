@@ -1,16 +1,7 @@
 //- buttons.pug
-extends layout.pug
+extends ./pugs_layouts/layout_charts.pug
 
-
-
-
-block page_heading
-    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-    <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
-
-block page_body
-    .row
-        <div class="col-xl-8 col-lg-7">
+mixin chart1
 
             <!-- Area Chart -->
             <div class="card shadow mb-4">
@@ -26,6 +17,8 @@ block page_body
                 </div>
             </div>
 
+mixin chart2
+
             <!-- Bar Chart -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -40,7 +33,7 @@ block page_body
                 </div>
             </div>
 
-        </div>
+mixin chart3
 
         <!-- Donut Chart -->
         <div class="col-xl-4 col-lg-5">
@@ -59,3 +52,16 @@ block page_body
                 </div>
             </div>
         </div>
+
+
+block page_heading
+    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+    <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
+
+block page_body
+    .row
+        <div class="col-xl-8 col-lg-7">
+            +chart1
+            +chart2
+        </div>
+            +chart3
