@@ -1,5 +1,8 @@
 //- cards.pug
-extends ./pugs_layouts/layout_charts.pug
+extends ./pugs_layouts/layout.pug
+
+include ./pug_inc/mixins.pug
+
 
 mixin card_3_4(card_class, text_class, title, desc, fa_icon)
     div(class="card shadow h-100 py-2" class!= card_class)
