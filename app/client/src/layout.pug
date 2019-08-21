@@ -11,6 +11,8 @@ html(lang="en")
 
         //- include ./pug_inc/ga_tracking.pug
 
+        block head
+
     body#page-top
         include ./pug_inc/test_wrapper.pug
 
@@ -20,3 +22,5 @@ html(lang="en")
         include ./pug_inc/logout_modal.pug
 
         include ./pug_inc/scripts.pug
+
+        block body_script

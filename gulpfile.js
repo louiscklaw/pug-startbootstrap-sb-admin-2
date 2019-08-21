@@ -219,7 +219,10 @@ function css() {
 // JS task
 function js() {
     return gulp
-        .src( [ path.join( CLIENT_JS, JS_MAIN ) ] )
+        .src( [
+            path.join( CLIENT_JS, JS_MAIN ),
+            path.join( CLIENT_JS, '**/*.js' ),
+        ] )
         .pipe( uglify() )
         .pipe( header( banner, {
             pkg: pkg
